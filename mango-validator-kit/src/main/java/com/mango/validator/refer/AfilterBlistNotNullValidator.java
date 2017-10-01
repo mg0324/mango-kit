@@ -1,8 +1,8 @@
 package com.mango.validator.refer;
 
 
-import org.mango.validator.util.MyValidator;
-import org.mango.validator.util.ValidContext;
+import com.mango.validator.util.MyValidator;
+import com.mango.validator.util.ValidContext;
 
 import java.util.Arrays;
 import java.util.List;

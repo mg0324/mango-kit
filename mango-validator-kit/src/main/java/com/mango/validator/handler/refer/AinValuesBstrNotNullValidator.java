@@ -1,8 +1,8 @@
-package com.mango.validator.refer;
+package com.mango.validator.handler.refer;
 
 
 
-import com.mango.validator.util.MyValidator;
+import com.mango.validator.handler.ReferValidator;
 import com.mango.validator.util.ValidContext;
 
 import java.util.Map;
@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Created by meigang on 17/9/15.
  */
-public class AOneBNotNullValidator extends MyValidator {
+public class AinValuesBstrNotNullValidator extends ReferValidator {
     /**
      * @param param 条件参数
      * @param validparam 验证参数
@@ -24,8 +24,8 @@ public class AOneBNotNullValidator extends MyValidator {
         String eqValue = this.getString(param,this.getFirstKey(param)+"_eqValue");
         if(null != bb){
             String field = this.getFirstKey(validparam);
-            String str = this.getString(validparam, field);
-            if(bb.equals(eqValue)) {
+            String str  = this.getString(validparam, field);
+            if(isInStr(eqValue,bb)) {
                 if (null != str && str.length()>0) {
                     return true;
                 } else {
@@ -37,5 +37,17 @@ public class AOneBNotNullValidator extends MyValidator {
             }
         }
         return true;
+    }
+
+    private boolean isInStr(String eqValue,String value){
+        boolean b = false;
+        String[] arr = eqValue.split(",");
+        for(String str : arr){
+            if(value.equals(str)){
+                b = true;
+                break;
+            }
+        }
+        return b;
     }
 }

@@ -1,8 +1,8 @@
-package com.mango.validator.refer;
+package com.mango.validator.handler.refer;
 
 
 
-import com.mango.validator.util.MyValidator;
+import com.mango.validator.handler.ReferValidator;
 import com.mango.validator.util.ValidContext;
 
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * Created by meigang on 17/9/15.
  */
-public class AeqValueBlistNotNullValidator extends MyValidator {
+public class AeqValueBlistNotNullValidator extends ReferValidator {
     /**
      * @param param 条件参数
      * @param validparam 验证参数

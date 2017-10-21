@@ -24,8 +24,6 @@ public @interface Dict {
 
     Class<?>[] groups() default {};
 
-    Class<? extends Payload>[] payload() default{};
-
     class Validator implements ConstraintValidator<Dict, String> {
         List<String> allowList;
 

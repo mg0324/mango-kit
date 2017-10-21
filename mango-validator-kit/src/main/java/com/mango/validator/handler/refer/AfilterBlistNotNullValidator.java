@@ -1,8 +1,7 @@
-package com.mango.validator.refer;
+package com.mango.validator.handler.refer;
 
 
-
-import com.mango.validator.util.MyValidator;
+import com.mango.validator.handler.ReferValidator;
 import com.mango.validator.util.ValidContext;
 
 import java.util.Arrays;
@@ -12,7 +11,7 @@ import java.util.Map;
 /**
  * Created by meigang on 17/9/15.
  */
-public class AcontainsValuesBstrNotNullValidator extends MyValidator {
+public class AfilterBlistNotNullValidator extends ReferValidator {
     /**
      * @param param 条件参数
      * @param validparam 验证参数
@@ -22,23 +21,30 @@ public class AcontainsValuesBstrNotNullValidator extends MyValidator {
      */
     @Override
     public boolean validate(Map<String, Object> param, Map<String, Object> validparam, ValidContext vc, String msg) {
-        String bb = this.getString(param,this.getFirstKey(param));
-        String eqValue = this.getString(param,this.getFirstKey(param)+"_eqValue");
-        if(null != bb){
-            String field = this.getFirstKey(validparam);
-            String str  = this.getString(validparam, field);
-            if(isInStr(eqValue,bb)) {
-                if (null != str && str.length()>0) {
-                    return true;
-                } else {
-                    vc.addError(field, msg);
-                    return false;
+        boolean bb = true;
+        for(String pkey : param.keySet()){
+            if(!pkey.contains("_eqValue")){//真实key
+                String value = this.getString(param,pkey);
+                if(value == null) return true;
+                String eqValue = this.getString(param,pkey+"_eqValue");
+                if(isInStr(value,eqValue)){
+                    bb = false;
+                    break;
                 }
-            }else{
-                return true;
             }
         }
-        return true;
+        String field = this.getFirstKey(validparam);
+        List list  = this.getList(validparam, field);
+        if(bb) {
+            if (null != list && list.size()>0) {
+                return true;
+            } else {
+                vc.addError(field, msg);
+                return false;
+            }
+        }else{
+            return true;
+        }
     }
 
     private boolean isInStr(String eqValue,String value){

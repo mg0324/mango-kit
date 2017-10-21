@@ -24,11 +24,6 @@ public class ExcelUtil {
     private static ExcelUtil export;
 
     /**
-     * excel文档
-     */
-    private HSSFWorkbook workbook;
-
-    /**
      * excel sheet
      */
     private HSSFSheet sheet;
@@ -68,7 +63,6 @@ public class ExcelUtil {
      * @throws Exception
      *             异常往外抛出
      */
-    @SuppressWarnings("unchecked")
     private HSSFRow setTRow(HSSFRow row, ArrayList tRow) throws Exception {
 
         try {
@@ -134,7 +128,6 @@ public class ExcelUtil {
                 fileOutput.close();
             } catch (IOException e) {
                 e.printStackTrace();
-                ;
             }
         }
     }

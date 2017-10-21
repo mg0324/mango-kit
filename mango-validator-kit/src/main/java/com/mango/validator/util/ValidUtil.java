@@ -17,7 +17,7 @@ import static com.baidu.unbiz.fluentvalidator.ResultCollectors.toSimple;
 /**
  * Created by meigang on 17/9/15.
  */
-public class ValidUtil {
+public class ValidUtil{
     protected static final Logger logger = LoggerFactory.getLogger(ValidUtil.class);
     protected static Validator failFastValidator;
     protected static Validator failOverValidator;
@@ -26,6 +26,10 @@ public class ValidUtil {
         failOverValidator = Validation.byProvider(HibernateValidator.class).configure().failFast(false).buildValidatorFactory().getValidator();
     }
     private ValidUtil(){}
+
+    public static ValidUtil newInstance(){
+        return new ValidUtil();
+    }
     /**
      * 验证hibernate 注解
      * @param obj 要校验的bean
@@ -83,30 +87,30 @@ public class ValidUtil {
      * @param obj
      * @return
      */
-    public static List<String> validMyAnno(Object obj,boolean isFailFast){
-        MyValidUtil myValidUtil = new MyValidUtil();
-        myValidUtil.validRefer(obj,null,isFailFast,true);
-        return myValidUtil.getMsgList();
+    public static List<String> validMyAnno(Object obj,boolean isFailFast,MyValidator myValidator){
+        return validMyAnno(obj,null,isFailFast,myValidator);
     }
 
-    public static List<String> validMyAnno(Object obj,Class<?>[] groups,boolean isFailFast){
+    public static List<String> validMyAnno(Object obj,Class<?>[] groups,boolean isFailFast,MyValidator myValidator){
         MyValidUtil myValidUtil = new MyValidUtil();
         myValidUtil.validRefer(obj,groups,isFailFast,true);
+        myValidUtil.validUnique(obj,groups,isFailFast,true,myValidator);
         return myValidUtil.getMsgList();
     }
+
     //不解析@FluentValid和@FluentValidate注解验证
     public static List<String> validateHibernateAndMy(Object obj,boolean isFailFast){
-        return validateAllInWithOutFluent(obj,null,isFailFast);
+        return validateAllInWithOutFluent(obj,null,isFailFast,null);
     }
 
-    public static List<String> validateAll(Object obj,boolean isFailFast){
-        return validateAllIn(obj,null,isFailFast);
+    public static List<String> validateAll(Object obj,boolean isFailFast,MyValidator myValidator){
+        return validateAllIn(obj,null,isFailFast,myValidator);
     }
 
 
 
-    public static List<String> validateAll(Object obj,Class<?>[] groups){
-        return validateAllIn(obj,groups,false);
+    public static List<String> validateAll(Object obj,Class<?>[] groups,MyValidator myValidator){
+        return validateAllIn(obj,groups,false,myValidator);
     }
 
     /**
@@ -115,7 +119,7 @@ public class ValidUtil {
      * @param groups
      * @return
      */
-    private static List<String> validateAllIn(Object obj,Class<?>[] groups,boolean isFailFast){
+    private static List<String> validateAllIn(Object obj,Class<?>[] groups,boolean isFailFast,MyValidator myValidator){
         Long start = System.currentTimeMillis();
         Result hiberResult = validHibernate(obj,groups,isFailFast);
         Long end = System.currentTimeMillis();
@@ -125,7 +129,7 @@ public class ValidUtil {
             Long end1 = System.currentTimeMillis();
             if(fluentResult.isSuccess()){
                 Long start2 = System.currentTimeMillis();
-                List<String> msgList = validMyAnno(obj,groups,isFailFast);
+                List<String> msgList = validMyAnno(obj,groups,isFailFast,myValidator);
                 Long end2 = System.currentTimeMillis();
                 logger.info("hibernate validator耗时:"+((double)(end-start)/1000) + "s");
                 logger.info("fluent validator耗时:"+((double)(end1-start1)/1000) + "s");
@@ -145,13 +149,13 @@ public class ValidUtil {
         }
     }
     //不验证fluent的注解，只验证hibernate和Refer的，因为fluent的少用
-    private static List<String> validateAllInWithOutFluent(Object obj,Class<?>[] groups,boolean isFailFast){
+    private static List<String> validateAllInWithOutFluent(Object obj,Class<?>[] groups,boolean isFailFast,MyValidator myValidator){
         Long start = System.currentTimeMillis();
         Result hiberResult = validHibernate(obj,groups,isFailFast);
         Long end = System.currentTimeMillis();
         if(hiberResult.isSuccess()){
             Long start1 = System.currentTimeMillis();
-            List<String> msgList = validMyAnno(obj,groups,isFailFast);
+            List<String> msgList = validMyAnno(obj,groups,isFailFast,myValidator);
             Long end1 = System.currentTimeMillis();
             logger.info("hibernate validator耗时:"+((double)(end-start)/1000) + "s");
             logger.info("my validator耗时:"+((double)(end1-start1)/1000) + "s");

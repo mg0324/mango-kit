@@ -8,6 +8,8 @@ mango mei的工具集
 
 ## mango-time-kit 
 * 实现Java方法运行耗时监控工具。
+* 2中实现方式，反射执行及cglib动态代理执行。
+* 直接执行是最快的，反射执行其次，cglib最慢。不过一样能达到监控方法运行耗时效果，推荐使用反射执行。
 
 ## mango-excel-kit
 * 1.基于POI，实现java excel导出文档工具。

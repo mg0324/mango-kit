@@ -1,7 +1,7 @@
 # mango-kit
 mango mei的工具集
 
-详细文档见wiki - https://gitee.com/mangoorg/mango-kit/wikis/Home            
+详细文档见wiki - https://gitee.com/mangoorg/mango-kit/wikis/pages/         
 
 ## mango-validator-kit 
 * 集成fluent-validator,hibernate-validator，并实现特定业务场景的后台验证框架工具。

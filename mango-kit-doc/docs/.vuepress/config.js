@@ -1,5 +1,5 @@
 module.exports = {
-    base: 'mango-kit',
+    base: '/mango-kit/',
     title: 'mango-kit文档',
     description: ''
 }

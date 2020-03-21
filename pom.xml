@@ -11,6 +11,7 @@
   <url>http://maven.apache.org</url>
   <modules>
     <module>mango-excel-kit</module>
+    <module>mango-time-kit</module>
     <module>mango-validator-kit</module>
   </modules>
   <properties>
@@ -37,8 +38,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>2.3.2</version>
         <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
+          <source>1.7</source>
+          <target>1.7</target>
           <encoding>UTF-8</encoding>
         </configuration>
       </plugin>

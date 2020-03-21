@@ -1,6 +1,9 @@
 package com.mango.time.util;
 
 import com.mango.time.TimeCglib;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -8,6 +11,7 @@ import java.lang.reflect.Method;
  * Created by meigang on 17/10/1.
  */
 public class TimeKit {
+    static Logger logger = LoggerFactory.getLogger(TimeKit.class);
     /**
      * 使用反射来加入调用真实方法的耗时监控，但其实并不准确
      * @param obj 调用对象
@@ -19,7 +23,7 @@ public class TimeKit {
         long start = System.currentTimeMillis();
         Object ret = method.invoke(obj,params);
         long end = System.currentTimeMillis();
-        System.out.println(obj.getClass().getName()+"."+methodName+"耗时:"+((double)(end-start)/1000)+"s");
+        logger.debug(obj.getClass().getName()+"."+methodName+"耗时:"+((double)(end-start)/1000)+"s");
         return ret;
     }
 

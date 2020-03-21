@@ -7,10 +7,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -95,8 +92,15 @@ public abstract class AbstractExcel {
     private void export(HSSFWorkbook wb, String filePath) throws Exception {
         FileOutputStream fileOutputStream = null;
         try {
+            File file = new File(filePath);
+            if(!file.exists()){
+                File dir = file.getParentFile();
+                if(!dir.exists()){
+                    dir.mkdirs();
+                }
+            }
             // 根据指定xls文件创建文件字符流
-            fileOutputStream = new FileOutputStream(filePath);
+            fileOutputStream = new FileOutputStream(file);
             // 将文档写入指定文件
             wb.write(fileOutputStream);
         } catch (FileNotFoundException e) {

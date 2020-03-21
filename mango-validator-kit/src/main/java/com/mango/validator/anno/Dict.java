@@ -21,7 +21,7 @@ public @interface Dict {
 
     String message() default "错误字典类型值";
     String allowValue() default "";
-
+    Class<? extends Payload>[] payload() default {};
     Class<?>[] groups() default {};
 
     class Validator implements ConstraintValidator<Dict, String> {

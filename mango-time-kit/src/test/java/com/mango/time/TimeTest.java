@@ -27,8 +27,7 @@ public class TimeTest {
     //测试cglib
     @Test
     public void testCglib() throws InterruptedException {
-        Cat cat = new Cat();
-        Cat catProxy = (Cat) TimeKit.invokeCglib(cat);
+        Cat catProxy = (Cat) TimeKit.invokeCglib(new Cat());
         catProxy.cry("cglib小猫",20);
     }
     /**

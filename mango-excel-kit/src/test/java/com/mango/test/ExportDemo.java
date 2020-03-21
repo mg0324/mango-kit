@@ -14,7 +14,7 @@ import java.util.List;
  * Created by meigang on 17/9/22.
  */
 public class ExportDemo extends AbstractExcel {
-    String saveDir = "/Users/meigang/fpdir";
+    String saveDir = "/Users/mango/fpdir";
     /**
      * 测试导出
      */

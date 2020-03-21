@@ -94,7 +94,9 @@ public class ValidUtil{
     public static List<String> validMyAnno(Object obj,Class<?>[] groups,boolean isFailFast,MyValidator myValidator){
         MyValidUtil myValidUtil = new MyValidUtil();
         myValidUtil.validRefer(obj,groups,isFailFast,true);
-        myValidUtil.validUnique(obj,groups,isFailFast,true,myValidator);
+        if(null != myValidator){
+            myValidUtil.validUnique(obj,groups,isFailFast,true,myValidator);
+        }
         return myValidUtil.getMsgList();
     }
 
@@ -107,6 +109,9 @@ public class ValidUtil{
         return validateAllIn(obj,null,isFailFast,myValidator);
     }
 
+    public static List<String> validateAll(Object obj,boolean isFailFast){
+        return validateAllIn(obj,null,isFailFast,null);
+    }
 
 
     public static List<String> validateAll(Object obj,Class<?>[] groups,MyValidator myValidator){

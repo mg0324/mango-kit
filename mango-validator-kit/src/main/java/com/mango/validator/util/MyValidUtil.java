@@ -1,8 +1,6 @@
 package com.mango.validator.util;
 
 
-import com.mango.validator.handler.UniqueValidator;
-
 import java.util.ArrayList;
 import java.util.List;
 

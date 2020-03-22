@@ -10,7 +10,7 @@ import java.lang.reflect.InvocationTargetException;
 public class TimeTest {
     //测试反射
     @Test
-    public void testReflect() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+    public void testReflect() throws Exception {
         Cat cat = new Cat();
         Object ret = TimeKit.invoke(cat,"cry",new Class[]{String.class,int.class},"反射小刚",24);
         System.out.println(ret);
@@ -26,7 +26,7 @@ public class TimeTest {
 
     //测试cglib
     @Test
-    public void testCglib() throws InterruptedException {
+    public void testCglib() {
         Cat catProxy = (Cat) TimeKit.invokeCglib(new Cat());
         catProxy.cry("cglib小猫",20);
     }
@@ -40,12 +40,12 @@ public class TimeTest {
 
     //测试手动加入
     @Test
-    public void test() throws InterruptedException {
+    public void test() {
         Cat cat = new Cat();
         long start = System.currentTimeMillis();
         cat.cry("小猫",20);
         long end = System.currentTimeMillis();
-        System.out.println(cat.getClass().getName()+".cry"+"耗时:"+((double)(end-start)/1000)+"s");
+        System.out.println(cat.getClass().getName()+".cry"+"耗时:"+(end-start)+"ms");
     }
     /**
      * 测试结果：

@@ -1,6 +1,7 @@
 ---
 home: true
-heroImage: /ahead.jpg
+heroImage: /mk.png
+heroStyle: width:150px;
 heroText: mango-kit工具集
 tagline: 积累常用的Java功能，不再重复造轮子。
 actionText: 快速上手 →

@@ -3,8 +3,6 @@ package com.github.mg0324.time.util;
 import com.github.mg0324.time.TimeCglib;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
@@ -26,7 +24,7 @@ public class TimeKit {
         long start = System.currentTimeMillis();
         Object ret = method.invoke(obj,params);
         long end = System.currentTimeMillis();
-        logger.debug(obj.getClass().getName()+"."+methodName+"耗时:"+((double)(end-start)/1000)+"s");
+        logger.debug(obj.getClass().getName()+"."+methodName+"耗时:"+(end-start)+"ms");
         return ret;
     }
 

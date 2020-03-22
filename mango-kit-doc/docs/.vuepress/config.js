@@ -1,12 +1,15 @@
 module.exports = {
     base: '/mango-kit/',
-    title: 'mango-kit文档',
-    description: '',
+    head: [
+        ['link', { rel: 'icon', href: '/favicon.ico' }]
+    ],
+    title: 'mango-kit文档 | java工具集',
+    description: 'java工具集',
     themeConfig: {
+        logo: '/favicon.ico',
         nav: [
             { text: '首页', link: '/' },
-            { text: '指南', link: '/zh/guide/' },
-            { text: 'External', link: 'https://google.com' },
+            { text: '指南', link: '/zh/guide/' }
         ],
         sidebar: {
             '/zh/guide/':[
@@ -17,5 +20,8 @@ module.exports = {
             ]
         },
         displayAllHeaders: false
+    },
+    markdown: {
+        lineNumbers: true
     }
 }

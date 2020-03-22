@@ -31,7 +31,7 @@ public class TimeCglib implements MethodInterceptor {
         long start = System.currentTimeMillis();
         Object ret = proxy.invokeSuper(obj, args); //调用业务类（父类中）的方法
         long end = System.currentTimeMillis();
-        logger.debug(obj.getClass().getName()+"."+method.getName()+"耗时:"+((double)(end-start)/1000)+"s");
+        logger.debug(obj.getClass().getName()+"."+method.getName()+"耗时:"+(end-start)+"ms");
         return ret;
     }
 }

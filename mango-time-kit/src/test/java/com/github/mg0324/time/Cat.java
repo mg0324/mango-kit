@@ -5,7 +5,7 @@ package com.github.mg0324.time;
  */
 public class Cat {
 
-    public String cry(String name,int age) throws InterruptedException {
+    public String cry(String name,int age) {
         System.out.println("我是一只小猫猫,名字叫做"+name);
         System.out.println("我今年"+age+"岁啦");
         return "ok";

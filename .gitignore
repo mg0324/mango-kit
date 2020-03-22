@@ -30,9 +30,6 @@ mango-excel-kit.iml
 mango-time-kit.iml
 mango-validator-kit.iml
 
-mango-excel-kit/target/
-mango-time-kit/target/
-mango-validator-kit/target/
 
 mango-kit-doc/node_modules/
 

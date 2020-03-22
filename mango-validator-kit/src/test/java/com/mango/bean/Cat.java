@@ -1,6 +1,6 @@
 package com.mango.bean;
 
-import com.mango.validator.anno.Dict;
+import com.github.mg0324.validator.anno.Dict;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Range;

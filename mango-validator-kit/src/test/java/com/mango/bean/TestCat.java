@@ -1,7 +1,7 @@
 package com.mango.bean;
 
 import com.alibaba.fastjson.JSONObject;
-import com.mango.validator.util.ValidUtil;
+import com.github.mg0324.validator.util.ValidUtil;
 import org.junit.Test;
 
 import java.util.List;

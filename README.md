@@ -1,7 +1,16 @@
 # mango-kit
 mango mei的工具集
 
-详细文档见wiki - https://gitee.com/mangoorg/mango-kit/wikis/pages/         
+* 为顶级 Module 设置新版本
+```
+mvn vsersion:set -DnewVersion=1.1-SANPSHOT
+```
+* 更新所有子 Module 的版本
+```
+mvn versions:update-child-modules
+```
+
+详细文档见wiki - http://mg.meiflower.top/mango-kit   
 
 ## mango-validator-kit 
 * 集成fluent-validator,hibernate-validator，并实现特定业务场景的后台验证框架工具。

@@ -2,13 +2,25 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.mango</groupId>
+  <groupId>com.github.mg0324</groupId>
   <artifactId>mango-kit</artifactId>
-  <version>1.0.0</version>
+  <version>0.1.0</version>
   <packaging>pom</packaging>
 
   <name>mango-kit</name>
-  <url>http://maven.apache.org</url>
+  <url>https://github.com/mg0324/mango-kit</url>
+  <description>mango's java tool kit list</description>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+  <scm>
+    <connection>scm:git:git://github.com/mg0324/mango-kit.git</connection>
+    <developerConnection>scm:git:ssh://github.com/mg0324/mango-kit.git</developerConnection>
+    <url>https://github.com/mg0324/mango-kit/tree/master</url>
+  </scm>
   <modules>
     <module>mango-excel-kit</module>
     <module>mango-time-kit</module>
@@ -17,13 +29,20 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.version>1.0</project.version>
+    <maven.deploy.skip>false</maven.deploy.skip>
+    <javadocExecutable>${java.home}/../bin/javadoc</javadocExecutable>
   </properties>
-  <distributionManagement>
-    <repository>
-      <id>releases</id>
-      <url>http://nexus.meiflower.top:8081/nexus/content/repositories/releases</url>
-    </repository>
-  </distributionManagement>
+  <developers>
+    <developer>
+      <name>mangomei</name>
+      <id>mangomei</id>
+      <email>1092017732@qq.com</email>
+      <roles>
+        <role>Developer</role>
+      </roles>
+      <timezone>+8</timezone>
+    </developer>
+  </developers>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -32,6 +51,16 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
   <build>
     <plugins>
       <plugin>
@@ -67,6 +96,40 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.9.1</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>1.5</version>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <configuration>
+          <generateBackupPoms>false</generateBackupPoms>
+        </configuration>
       </plugin>
     </plugins>
   </build>

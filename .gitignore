@@ -31,5 +31,6 @@ mango-time-kit.iml
 mango-validator-kit.iml
 
 mango-kit-doc/node_modules/
+test/
 
 

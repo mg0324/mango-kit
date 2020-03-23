@@ -19,7 +19,7 @@ mango-time-kit就是引入cglib来实现类的动态代理，进而完成方法�
 ## 使用案例
 1. 传统方式
 ``` java
-@Test
+@Test1
 public void test() {
     Cat cat = new Cat();
     long start = System.currentTimeMillis();
@@ -30,8 +30,18 @@ public void test() {
 ```
 
 2. time增强
+
+添加依赖
+``` xml
+<!-- https://mvnrepository.com/artifact/com.github.mg0324/mango-time-kit -->
+<dependency>
+    <groupId>com.github.mg0324</groupId>
+    <artifactId>mango-time-kit</artifactId>
+    <version>${mango.kit.version}</version>
+</dependency>
+```
 ``` java
-@Test
+@Test1
 public void testCglib() {
     Cat catProxy = (Cat) TimeKit.invokeCglib(new Cat());
     catProxy.cry("cglib小猫",20);

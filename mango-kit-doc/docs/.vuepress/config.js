@@ -11,6 +11,7 @@ module.exports = {
             { text: '首页', link: '/' },
             { text: '指南', link: '/zh/guide/' }
         ],
+        sidebarDepth: 2,
         sidebar: {
             '/zh/guide/':[
                 '',

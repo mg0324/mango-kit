@@ -1,8 +1,11 @@
-package com.github.mg0324.validator.util;
+package com.github.mg0324.validator.mango;
 
 
 import com.alibaba.fastjson.JSONObject;
-import com.github.mg0324.validator.anno.Refer;
+import com.github.mg0324.validator.mango.anno.Refer;
+import com.github.mg0324.validator.util.BaseValidUtil;
+import com.github.mg0324.validator.util.ValidContext;
+
 import javax.validation.Valid;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -12,7 +15,7 @@ import java.util.*;
 /**
  * Created by meigang on 17/9/15.
  */
-public class ReferValidUtil extends BaseValidUtil{
+public class ReferValidUtil extends BaseValidUtil {
 
     public ReferValidUtil(ValidContext validContext){
         this.validContext = validContext;

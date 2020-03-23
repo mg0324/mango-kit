@@ -1,4 +1,4 @@
-package com.github.mg0324.validator.anno;
+package com.github.mg0324.validator.mango.anno;
 
 import javax.validation.Constraint;
 import javax.validation.ConstraintValidator;
@@ -42,7 +42,7 @@ public @interface Dict {
             if(allowList.contains(str)){
                 return true;
             }else{
-                System.out.println("error:"+str+" in "+allowList);
+                //System.out.println("error:"+str+" in "+allowList);
                 return false;
             }
         }

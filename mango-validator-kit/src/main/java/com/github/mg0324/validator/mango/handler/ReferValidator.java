@@ -1,6 +1,6 @@
-package com.github.mg0324.validator.handler;
+package com.github.mg0324.validator.mango.handler;
 
-import com.github.mg0324.validator.util.MyValidator;
+import com.github.mg0324.validator.mango.MyValidator;
 import com.github.mg0324.validator.util.ValidContext;
 
 import java.util.Map;

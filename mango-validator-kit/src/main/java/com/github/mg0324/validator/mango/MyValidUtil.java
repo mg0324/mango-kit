@@ -1,5 +1,7 @@
-package com.github.mg0324.validator.util;
+package com.github.mg0324.validator.mango;
 
+
+import com.github.mg0324.validator.util.ValidContext;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,11 +16,6 @@ public class MyValidUtil{
 
     public MyValidUtil(){
         validContext = new ValidContext();
-    }
-
-    public void validUnique(Object obj, Class<?>[] groups, boolean isFailFast, boolean setMap, MyValidator uniqueValidator){
-        UniqueValidUtil uniqueValidUtil = new UniqueValidUtil(this.validContext);
-        uniqueValidUtil.validUnique(obj,groups,isFailFast,setMap,uniqueValidator);
     }
 
     public void validRefer(Object obj,Class<?>[] groups,boolean isFailFast,boolean setMap){

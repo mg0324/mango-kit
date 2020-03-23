@@ -1,8 +1,8 @@
-package com.github.mg0324.validator.handler.refer;
+package com.github.mg0324.validator.mango.handler.refer;
 
 
 
-import com.github.mg0324.validator.handler.ReferValidator;
+import com.github.mg0324.validator.mango.handler.ReferValidator;
 import com.github.mg0324.validator.util.ValidContext;
 
 import java.util.List;

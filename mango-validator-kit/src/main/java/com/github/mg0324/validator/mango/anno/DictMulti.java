@@ -1,4 +1,4 @@
-package com.github.mg0324.validator.anno;
+package com.github.mg0324.validator.mango.anno;
 
 import javax.validation.Constraint;
 import javax.validation.ConstraintValidator;

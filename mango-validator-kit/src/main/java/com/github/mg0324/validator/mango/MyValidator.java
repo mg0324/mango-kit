@@ -1,4 +1,4 @@
-package com.github.mg0324.validator.util;
+package com.github.mg0324.validator.mango;
 
 import java.util.List;
 import java.util.Map;

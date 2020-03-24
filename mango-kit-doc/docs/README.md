@@ -12,6 +12,8 @@ features:
 - title: Excel导出
   details: 集成POI导出excel，指定xls模板+数据导出excel。
 - title: Validator后台校验
-  details: 集成开源验证框架fluent-validator，并增强自定义校验，如@Dict,@DictMutil,@Refer等以满足Java后台常用校验。
+  details: 集成开源验证框架fluent-validator，并增强自定义校验，如@Dict,@DictMulti,@Refer等以满足Java后台常用校验。
+- title: Fast多线程并行加速
+  details: 基于guava和cglib实现多线程并行加速工具。
 footer: MIT Licensed | Copyright © 2020-Mango Mei
 ---

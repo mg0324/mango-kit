@@ -17,7 +17,8 @@ module.exports = {
                 '',
                 'time',
                 'excel',
-                'validator'
+                'validator',
+                'fast'
             ]
         },
         displayAllHeaders: false

@@ -4,7 +4,7 @@
 
   <groupId>com.github.mg0324</groupId>
   <artifactId>mango-kit</artifactId>
-  <version>0.2.0</version>
+  <version>0.3.0</version>
   <packaging>pom</packaging>
 
   <name>mango-kit</name>
@@ -26,6 +26,8 @@
     <module>mango-time-kit</module>
     <module>mango-validator-kit</module>
       <module>mango-fast-kit</module>
+    <module>test</module>
+    <module>mango-clazz-executor-kit</module>
   </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -68,8 +70,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>2.3.2</version>
         <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
+          <source>1.8</source>
+          <target>1.8</target>
           <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
@@ -101,7 +103,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.9.1</version>
+        <version>3.2.0</version>
         <executions>
           <execution>
             <id>attach-javadocs</id>
@@ -128,6 +130,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>versions-maven-plugin</artifactId>
+        <version>2.11.0</version>
         <configuration>
           <generateBackupPoms>false</generateBackupPoms>
         </configuration>

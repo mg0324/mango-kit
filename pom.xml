@@ -25,9 +25,10 @@
     <module>mango-excel-kit</module>
     <module>mango-time-kit</module>
     <module>mango-validator-kit</module>
-      <module>mango-fast-kit</module>
+    <module>mango-fast-kit</module>
     <module>test</module>
     <module>mango-clazz-executor-kit</module>
+    <module>mango-tomcat-starter-kit</module>
   </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
